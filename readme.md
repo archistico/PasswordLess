@@ -30,11 +30,13 @@ In Excel
 ```
 =COMBINAZIONE(B1;B2)
 
-n	3000	elementi
-k	10	gruppi da
+n	3000	parole
+k	10	  gruppi da
 
 Combinazioni	16.029.803.915.594.900.000.000.000.000 	
 ```
+
+Come fare per non creare tutte le combinazioni ma avere un algoritmo che calcola solo quella al numero desiderato?
 
 ```
 1234567890123456  
