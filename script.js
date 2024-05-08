@@ -4,6 +4,7 @@ SPID
 I caratteri speciali ammessi sono: & % ! " ( ) ? ^ + [ ] . , _
 
 TODO:
+ - [ ] per il push su github configurare il repository e poi usare il tool sulla sx su replit "git"
  - [ ] mettere la master password a type="password" 
  - [X] sito web ecc. pulire da https:// http://
  - [ ] gestione caratteri non inclusi
