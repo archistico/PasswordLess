@@ -271,4 +271,4 @@ function haCaratteriConsecutivi(str) {
 }
 
 
-
+console.log(parole[3]);

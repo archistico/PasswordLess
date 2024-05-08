@@ -39,6 +39,35 @@ Combinazioni	16.029.803.915.594.900.000.000.000.000
 Come fare per non creare tutte le combinazioni ma avere un algoritmo che calcola solo quella al numero desiderato?
 
 ```
+ho 6 parole
+A B C D E F
+
+devo raggrupparle in gruppi da 3 parole 6!/(3!*(6-3)!) = 20 combinazioni
+01) ABC
+02) ABD
+03) ABE
+04) ABF -> PERMUTAZIONI CON AB
+05) ACB
+06) ACD
+07) ACE
+08) ACF -> PERMUTAZIONI CON AC
+09) ADB
+10) ADC
+11) ADE
+12) ADF -> PERMUTAZIONI CON AD
+13) AEB
+14) AEC
+15) AED
+16) AEF -> PERMUTAZIONI CON AE
+17) 
+
+...
+
+se chiedo la 3 come faccio ad avere il gruppo X
+```
+
+
+```
 1234567890123456  
 pippovaacasaoggi  
 ```
