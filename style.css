@@ -4,13 +4,14 @@
 }
 
 h1 {
-  --pico-font-family: Roboto, cursive;
+  --pico-font-family: SFMono-Regular, Consolas, monospace;
   --pico-font-weight: 600;
 }
 
 h3 {
   --pico-typography-spacing-top: 1rem;
   --pico-spacing: 1rem;
+  --pico-font-weight: 400;
   letter-spacing: 2px;
 }
 
