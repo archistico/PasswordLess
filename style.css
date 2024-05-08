@@ -1,0 +1,23 @@
+:root {
+  --pico-font-family-monospace: SFMono-Regular, Consolas, monospace;
+  --pico-font-family: var(--pico-font-family-monospace);
+}
+
+h1 {
+  --pico-font-family: Roboto, cursive;
+  --pico-font-weight: 600;
+}
+
+h3 {
+  --pico-typography-spacing-top: 1rem;
+  --pico-spacing: 1rem;
+  letter-spacing: 2px;
+}
+
+.NO {
+  color: rgb(217, 53, 38);
+}
+
+.OK {
+  color: rgb(57, 135, 18);
+}

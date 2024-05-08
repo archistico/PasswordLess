@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="pico.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <title>PasswordLess v2</title>
+</head>
+
+<body>
+  <main class="container">
+    <h1>PasswordLess v2</h1>
+
+    <section id="dati">
+      <p>
+        Inserendo la master password, che potrai tenere uguale per ogni servizio, e il sito web / email / account ti verrà creata una password differente senza doverle ricordare tutte a memoria.
+      </p>
+      <form>
+        <label for="input_master"><strong>Master password</strong> [minimo 8 caratteri]</label>
+        <input id="input_master" type="text" name="firstname" placeholder="Master password" aria-label="Master password"
+          value="Ma#ster_Password@" required />
+        <label for="input_dove"><strong>Sito web / Email / Account / ...</strong> [minimo 5 caratteri]</label>
+        <input id="input_dove" type="text" name="dove" placeholder="Sito web / Email / Account / ..."
+          aria-label="Sito web / Email / Account / ..." value="google.com" required />
+        <button type="submit" onclick="event.preventDefault();calcola()">Calcola</button>
+      </form>
+    </section>
+
+    <section id="risultati">
+      <article id="article">
+        <p><em>Password</em></p>
+        <h3 id="text_risultato">-</h2>
+          <footer>
+            <small>Verifica requisiti:
+              <ul>
+                <li>Lunghezza minima 8 caratteri: <span id="check_lunghezza_minima"></span></li>
+                <li>Lunghezza massima 16 caratteri: <span id="check_lunghezza_massima"></span></li>
+                <li>Presenza di maiuscole: <span id="check_maiuscole"></span></li>
+                <li>Presenza di minuscole: <span id="check_minuscole"></span></li>
+                <li>Uno o più numeri: <span id="check_numeri"></span></li>
+                <li>Almeno un carattere speciale: <span id="check_caratteri_speciali"></span></li>
+                <li>Solo caratteri permessi: <span id="check_caratteri_permessi"></span></li>
+                <li>Non più di due caratteri uguali consecutivi: <span id="check_caratteri_consecutivi"></span></li>
+              </ul>
+            </small>
+          </footer>
+      </article>
+    </section>
+  </main>
+
+  <script src="hash.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+
+</html>
