@@ -19,28 +19,19 @@ TODO
  - [X] aggiungere favicon
  - [X] inizio a prendere i numeri e le lettere speciali dal numero[shift]
  - [X] tasto copia
- - [ ] aggiungere parole
+ - [X] aggiungere parole
 
 ## Combinazioni di parole
 
 Tutte le possibili combinazioni sono :
-
+```
 C(n,k) = n! / ( k!*(n-k)! )
-dove n = 6, k = 4
-
 Il ! Indica il fattoriale di un numero, cioè ad esempio n! = n*(n-1)*(n-2)*……*1
 
-Quindi C(6,4) = 6!/(4!*(6–4)!) = 720/(24*2) = 720/48 = 15
+n = 9999 (numero di parole)
+k = 4 (gruppi di k parole)
 
-In Excel
-```
-=COMBINAZIONE(B3;B4)
+Quindi C(9999,4) = (9999!)/(4!*(9999-4)!) = 416.250.145.812.501 possibilità di combinazione
 
-n	1000	parole
-k	4	  gruppi da k parole
-Combinazioni       41.417.124.750
-
-n	3000	parole
-k	4	  gruppi da k parole
-Combinazioni -> 3.368.254.124.250
+In Excel =COMBINAZIONE(9999;4)
 ```
