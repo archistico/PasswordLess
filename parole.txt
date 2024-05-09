@@ -571,6 +571,7 @@ architettare
 architetto
 architettonico
 architettura
+archistico
 archiviare
 archivio
 arco
@@ -2954,6 +2955,7 @@ elenco
 eleonora
 elettorale
 elettore
+elettra
 elettrauto
 elettricista
 elettricità
@@ -7552,6 +7554,7 @@ rodere
 rododendro
 rodolfo
 rodrigo
+rollandin
 rollsroyce
 roma
 romagnolo

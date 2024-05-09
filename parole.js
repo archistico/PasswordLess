@@ -2956,6 +2956,7 @@ const parole = [
 "eleonora", 
 "elettorale", 
 "elettore", 
+"elettra", 
 "elettrauto", 
 "elettricista", 
 "elettricita", 
