@@ -1,25 +1,3 @@
-/*
-
-SPID
-I caratteri speciali ammessi sono: & % ! " ( ) ? ^ + [ ] . , _
-
-TODO:
- - [ ] per il push su github configurare il repository e poi usare il tool sulla sx su replit "git"
- - [ ] mettere la master password a type="password" 
- - [X] sito web ecc. pulire da https:// http://
- - [ ] gestione caratteri non inclusi
- - [X] funzione di verifica della password generata
-    - [X] lunghezza minima 8 caratteri
-    - [X] lunghezza massima 16 caratteri
-    - [X] presenza di maiuscole
-    - [X] presenza di minuscole
-    - [X] uno o più numeri
-    - [X] almeno un carattere speciale
-    - [X] non più di due caratteri uguali consecutivi
- - [ ] correggi la password per rispettare tutti i parametri
-*/
-
-
 // ------------------------------------------------------------------
 // ONLOAD
 // ------------------------------------------------------------------
