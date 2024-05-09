@@ -15,8 +15,10 @@ TODO
     - [X] uno o più numeri
     - [X] almeno un carattere speciale
     - [X] non più di due caratteri uguali consecutivi
- - [ ] cicla se la password non rispetta tutti i parametri e shift++
- - [ ] aggiungere favicon
+ - [X] cicla se la password non rispetta tutti i parametri e shift++
+ - [X] aggiungere favicon
+ - [ ] aggiungere parole
+ - [X] inizio a prendere i numeri e le lettere speciali dal numero[shift]
 
 ## Combinazioni di parole
 
