@@ -24,6 +24,8 @@ function copia() {
 
 function calcola() {
 
+  const lunghezza_minima = 12;
+
   let input_master = document.getElementById("input_master");
   let input_dove = document.getElementById("input_dove");
   let risultato = document.getElementById("text_risultato");
@@ -79,11 +81,17 @@ function calcola() {
     let terza_parola = parole[terzo_indice];
     let quarta_parola = parole[quarto_indice];
 
-    pw = prima_parola.charAt(0).toUpperCase() + prima_parola.slice(1)
-      + seconda_parola.charAt(0).toUpperCase() + seconda_parola.slice(1)
-      + terza_parola.charAt(0).toUpperCase() + terza_parola.slice(1)
-      + quarta_parola.charAt(0).toUpperCase() + quarta_parola.slice(1)
+    pw = prima_parola.charAt(0).toUpperCase() + prima_parola.slice(1);
+    pw = pw + seconda_parola.charAt(0).toUpperCase() + seconda_parola.slice(1);
 
+    if (!haLunghezzaMinima(pw, lunghezza_minima)) {
+      pw = pw + terza_parola.charAt(0).toUpperCase() + terza_parola.slice(1);
+    }
+
+    if (!haLunghezzaMinima(pw, lunghezza_minima)) {
+      pw = pw + quarta_parola.charAt(0).toUpperCase() + quarta_parola.slice(1)
+    }
+    
     pw = pw.substring(0, 16);
     pw = aggiungiNumeri(pw, parseInt(numero[shift]));
     pw = aggiungiSpeciale(pw, parseInt(numero[shift]));
