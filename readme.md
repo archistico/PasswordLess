@@ -16,6 +16,7 @@ TODO
     - [X] almeno un carattere speciale
     - [X] non più di due caratteri uguali consecutivi
  - [ ] cicla se la password non rispetta tutti i parametri e shift++
+ - [ ] aggiungere favicon
 
 ## Combinazioni di parole
 
