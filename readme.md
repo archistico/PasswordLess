@@ -17,8 +17,9 @@ TODO
     - [X] non più di due caratteri uguali consecutivi
  - [X] cicla se la password non rispetta tutti i parametri e shift++
  - [X] aggiungere favicon
- - [ ] aggiungere parole
  - [X] inizio a prendere i numeri e le lettere speciali dal numero[shift]
+ - [X] tasto copia
+ - [ ] aggiungere parole
 
 ## Combinazioni di parole
 

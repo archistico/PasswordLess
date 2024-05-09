@@ -90,7 +90,7 @@ function calcola() {
 
     shift++;
 
-    console.log(shift, pw, parseInt(numero[shift]))
+    //console.log(shift, pw, parseInt(numero[shift]))
 
   } while (!verifica(pw) && ((shift * qt_caratteri * 4) < numero.length));
 
