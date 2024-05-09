@@ -57,10 +57,44 @@ function calcola() {
     input_dove.setAttribute("aria-invalid", "false");
   }
 
+  let qt = parole.length;
+  let qt_caratteri = qt.toString().length;
+  let qt_max = Math.pow(10, qt_caratteri) - 1;
+
+  let shift = 0;
+
   let SHA512 = new Hashes.SHA512;
-  let output = vigenere(input_master.value, SHA512.hex(input_dove.value + input_master.value));
-  risultato.innerText = output;
-  check(output);
+  let numero = hexToStringInt(SHA512.hex(input_master.value + input_dove.value));
+
+  let primo = parseInt(numero.substring(0 + shift, qt_caratteri * 1 + shift));
+  let secondo = parseInt(numero.substring(qt_caratteri * 1 + shift, qt_caratteri * 2 + shift));
+  let terzo = parseInt(numero.substring(qt_caratteri * 2 + shift, qt_caratteri * 3 + shift));
+  let quarto = parseInt(numero.substring(qt_caratteri * 3 + shift, qt_caratteri * 4 + shift));
+
+  let primo_indice = Math.floor(primo/qt_max*qt);
+  let secondo_indice = Math.floor(secondo/qt_max*qt);
+  let terzo_indice = Math.floor(terzo/qt_max*qt);
+  let quarto_indice = Math.floor(quarto/qt_max*qt);
+
+  let prima_parola = parole[primo_indice];
+  let seconda_parola = parole[secondo_indice];
+  let terza_parola = parole[terzo_indice];
+  let quarta_parola = parole[quarto_indice];
+
+  let pw = prima_parola.charAt(0).toUpperCase()+ prima_parola.slice(1)
+      + seconda_parola.charAt(0).toUpperCase()+ seconda_parola.slice(1)
+      + terza_parola.charAt(0).toUpperCase()+ terza_parola.slice(1)
+      + quarta_parola.charAt(0).toUpperCase()+ quarta_parola.slice(1)
+
+  console.log(pw);
+  console.log(pw.length);
+
+  if (pw.length > 16) {
+      console.log(pw.substring(0, 16));
+  }
+  
+  risultato.innerText = pw;
+  check(pw);
 }
 
 // ------------------------------------------------------------------
@@ -154,50 +188,6 @@ function pulisciDove(str) {
 }
 
 // ------------------------------------------------------------------
-// VIGENERE
-// ------------------------------------------------------------------
-
-function vigenere(message, keyword) {
-
-  const alphabet = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ%&!()?+[].,_@#°§*/\|^=$£€\"'-*";
-
-  message = message.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-  let result = "";
-  let keywordIndex = 0;
-
-  let shift = 1;
-
-  for (let i = 0; i < message.length; i++) {
-    const char = message[i];
-    const charIndex = alphabet.indexOf(char.toLowerCase());
-
-    if (charIndex >= 0) {
-      const keywordChar = keyword[keywordIndex % keyword.length];
-      const keywordIndexInAlphabet = alphabet.indexOf(
-        keywordChar.toLowerCase()
-      );
-      const isUpperCase = char === char.toUpperCase();
-      const shiftedCharIndex =
-        (charIndex + shift * keywordIndexInAlphabet + alphabet.length) % alphabet.length;
-      let shiftedChar = alphabet[shiftedCharIndex];
-
-      if (isUpperCase) {
-        shiftedChar = shiftedChar.toUpperCase();
-      }
-
-      result += shiftedChar;
-
-      keywordIndex++;
-    } else {
-      result += char;
-    }
-  }
-
-  return result;
-}
-
-// ------------------------------------------------------------------
 // haMaiuscole
 // ------------------------------------------------------------------
 function haMaiuscole(str) {
@@ -270,5 +260,32 @@ function haCaratteriConsecutivi(str) {
   return false;
 }
 
+// ------------------------------------------------------------------
+// hexToStringInt
+// ------------------------------------------------------------------
 
-console.log(parole[3]);
+function hexToStringInt(s) {
+
+    function add(x, y) {
+        var c = 0, r = [];
+        var x = x.split('').map(Number);
+        var y = y.split('').map(Number);
+        while(x.length || y.length) {
+            var s = (x.pop() || 0) + (y.pop() || 0) + c;
+            r.unshift(s < 10 ? s : s - 10); 
+            c = s < 10 ? 0 : 1;
+        }
+        if(c) r.unshift(c);
+        return r.join('');
+    }
+
+    var dec = '0';
+    s.split('').forEach(function(chr) {
+        var n = parseInt(chr, 16);
+        for(var t = 8; t; t >>= 1) {
+            dec = add(dec, dec);
+            if(n & t) dec = add(dec, '1');
+        }
+    });
+    return dec.toString();
+}
