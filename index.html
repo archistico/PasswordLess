@@ -7,26 +7,25 @@
   <meta name="color-scheme" content="light dark" />
   <link rel="stylesheet" href="pico.min.css" />
   <link rel="stylesheet" href="style.css" />
-  <title>PasswordLess v2</title>
+  <title>Password generator</title>
 </head>
 
 <body>
   <main class="container">
-    <h1>PasswordLess v2</h1>
+    <h1>Password generator</h1>
 
     <section id="dati">
       <p>
-        Inserendo la master password, che potrai tenere uguale per ogni servizio, e il sito web / email / account ti
-        verrà creata una password differente senza doverle ricordare tutte a memoria.
+        By entering the master password, which you can keep the same for each service, and the website / email / account, a different password will be created for you without having to remember them all by heart.
       </p>
       <form>
-        <label for="input_master"><strong>Master password</strong> [minimo 8 caratteri]</label>
+        <label for="input_master"><strong>Master password</strong> <small>[>=8 chars]</small></label>
         <input id="input_master" type="text" name="firstname" placeholder="Master password" aria-label="Master password"
           value="M@ster_Passw0rd" required />
-        <label for="input_dove"><strong>Sito web / Email / Account / ...</strong> [minimo 5 caratteri]</label>
+        <label for="input_dove"><strong>URL / Email / Account / ...</strong> <small>[>=5 chars]</small></label>
         <input id="input_dove" type="text" name="dove" placeholder="Sito web / Email / Account / ..."
-          aria-label="Sito web / Email / Account / ..." value="google.com" required />
-        <button type="submit" onclick="event.preventDefault();calcola()">Calcola</button>
+          aria-label="google.com or info@live.com or smartphone ..." value="google.com" required />
+        <button type="submit" onclick="event.preventDefault();calcola()">Generate</button>
       </form>
     </section>
 
@@ -35,16 +34,16 @@
         <p><em>Password</em></p>
         <h3 id="text_risultato">-</h2>
           <footer>
-            <small>Verifica requisiti:
+            <small>Check:
               <ul>
-                <li>Lunghezza minima 8 caratteri: <span id="check_lunghezza_minima"></span></li>
-                <li>Lunghezza massima 16 caratteri: <span id="check_lunghezza_massima"></span></li>
-                <li>Presenza di maiuscole: <span id="check_maiuscole"></span></li>
-                <li>Presenza di minuscole: <span id="check_minuscole"></span></li>
-                <li>Uno o più numeri: <span id="check_numeri"></span></li>
-                <li>Almeno un carattere speciale: <span id="check_caratteri_speciali"></span></li>
-                <li>Solo caratteri permessi: <span id="check_caratteri_permessi"></span></li>
-                <li>Non più di due caratteri uguali consecutivi: <span id="check_caratteri_consecutivi"></span></li>
+                <li>Minimum length 8 characters: <span id="check_lunghezza_minima"></span></li>
+                <li>Maximum length 16 characters: <span id="check_lunghezza_massima"></span></li>
+                <li>Presence of capital letters: <span id="check_maiuscole"></span></li>
+                <li>Presence of lowercase letters: <span id="check_minuscole"></span></li>
+                <li>One or more numbers: <span id="check_numeri"></span></li>
+                <li>At least one special character: <span id="check_caratteri_speciali"></span></li>
+                <li>Only characters allowed: <span id="check_caratteri_permessi"></span></li>
+                <li>No more than two consecutive identical characters: <span id="check_caratteri_consecutivi"></span></li>
               </ul>
             </small>
           </footer>
