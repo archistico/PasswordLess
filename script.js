@@ -94,6 +94,7 @@ function calcola() {
       console.log(pw.substring(0, 16));
   }
 
+  pw = pw.substring(0,16);
   pw = aggiungiNumeri(pw);
   pw = aggiungiSpeciale(pw, hash);
   
