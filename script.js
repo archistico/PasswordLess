@@ -64,7 +64,8 @@ function calcola() {
   let shift = 0;
 
   let SHA512 = new Hashes.SHA512;
-  let numero = hexToStringInt(SHA512.hex(input_master.value + input_dove.value));
+  let hash = SHA512.hex(input_master.value + input_dove.value);
+  let numero = hexToStringInt(hash);
 
   let primo = parseInt(numero.substring(0 + shift, qt_caratteri * 1 + shift));
   let secondo = parseInt(numero.substring(qt_caratteri * 1 + shift, qt_caratteri * 2 + shift));
@@ -92,9 +93,133 @@ function calcola() {
   if (pw.length > 16) {
       console.log(pw.substring(0, 16));
   }
+
+  pw = aggiungiNumeri(pw);
+  pw = aggiungiSpeciale(pw, hash);
   
   risultato.innerText = pw;
   check(pw);
+}
+
+// ------------------------------------------------------------------
+// aggiungiSpeciale
+// ------------------------------------------------------------------
+function aggiungiSpeciale(str, hash) {
+  let ris = str;  
+  
+  ris = ris.replace(/(a|A)/, "@"); 
+  if (haSpeciali(ris)) return ris;
+
+  ris = ris.replace(/(e|E)/, "&"); 
+  if (haSpeciali(ris)) return ris;
+
+  ris = ris.replace(/(l|L)/, "!"); 
+  if (haSpeciali(ris)) return ris;
+
+  ris = ris.replace(/(r|R)/, "#"); 
+  if (haSpeciali(ris)) return ris;
+
+  ris = ris.replace(/(m|M)/, "-"); 
+  if (haSpeciali(ris)) return ris;
+
+  ris = ris.replace(/(n|N)/, "+"); 
+  if (haSpeciali(ris)) return ris;
+  
+  ris = ris.replace(/(h|H)/, "="); 
+  if (haSpeciali(ris)) return ris;
+
+  ris = ris.replace(/(c|C)/, "("); 
+  if (haSpeciali(ris)) return ris;
+
+  ris = ris.replace(/(d|D)/, ")"); 
+  if (haSpeciali(ris)) return ris;
+
+  ris = ris.replace(/(j|J)/, "%"); 
+  if (haSpeciali(ris)) return ris;
+
+  ris = ris.replace(/(y|Y)/, ","); 
+  if (haSpeciali(ris)) return ris;
+
+  ris = ris.replace(/(x|X)/, "."); 
+  if (haSpeciali(ris)) return ris;
+
+  ris = ris.replace(/(w|W)/, ";"); 
+  if (haSpeciali(ris)) return ris;
+
+  ris = ris.replace(/(v|V)/, ":"); 
+  if (haSpeciali(ris)) return ris;
+
+  ris = ris.replace(/(u|U)/, "_"); 
+  if (haSpeciali(ris)) return ris;
+
+  ris = ris.replace(/(f|F)/, "?"); 
+  if (haSpeciali(ris)) return ris;
+  
+  ris = ris.replace(/(b|B)/, "*"); 
+  if (haSpeciali(ris)) return ris;
+
+  ris = ris.replace(/(k|K)/, "^"); 
+  if (haSpeciali(ris)) return ris;
+
+  ris = ris.replace(/(p|P)/, "["); 
+  if (haSpeciali(ris)) return ris;
+
+  ris = ris.replace(/(q|Q)/, "]"); 
+  if (haSpeciali(ris)) return ris;
+
+  /*
+  abcdefghijklmnopqrstuvwxyz
+  @*()&?9=1%^!-+0[]#57_:;.,2
+  
+  12345678901234567890 -> 20 speciali
+  @#&*-+=()_:;.,!?%[]^ 
+  */ 
+
+  return ris;
+}
+
+// ------------------------------------------------------------------
+// aggiungiNumeri
+// ------------------------------------------------------------------
+function aggiungiNumeri(str) {
+  let ris = str;  
+
+  /*
+  abcdefghijklmnopqrstuvwxyz
+  4   3 9 1     068 57     2
+  */
+  
+  ris = ris.replace(/(o|O)/, "0"); 
+  if (haNumeri(ris)) return ris;
+
+  ris = ris.replace(/(i|I)/, "1"); 
+  if (haNumeri(ris)) return ris;
+
+  ris = ris.replace(/(e|E)/, "3"); 
+  if (haNumeri(ris)) return ris;
+
+  ris = ris.replace(/(a|A)/, "4"); 
+  if (haNumeri(ris)) return ris;
+
+  ris = ris.replace(/(z|Z)/, "2"); 
+  if (haNumeri(ris)) return ris;
+
+  ris = ris.replace(/(s|S)/, "5"); 
+  if (haNumeri(ris)) return ris;
+
+  ris = ris.replace(/(p|P)/, "6"); 
+  if (haNumeri(ris)) return ris;
+
+  ris = ris.replace(/(t|T)/, "7"); 
+  if (haNumeri(ris)) return ris;
+
+  ris = ris.replace(/(q|Q)/, "8"); 
+  if (haNumeri(ris)) return ris;
+
+  ris = ris.replace(/(g|G)/, "9"); 
+  if (haNumeri(ris)) return ris;
+
+  return ris;
 }
 
 // ------------------------------------------------------------------
@@ -212,9 +337,12 @@ function haNumeri(str) {
 // haSpeciali
 // ------------------------------------------------------------------
 function haSpeciali(str) {
-  // & % ! " ( ) ? ^ + [ ] . , _
- 
-  let arr = ["&", "%", "!", "\"", "(", ")", "?", "^", "+", "[", "]", ".", ",", "_"];
+  
+  // @#&*-+=()_:;.,!?%[]^ 
+
+  let permessi = "@#&*-+=()_:;.,!?%[]^";
+  let arr = Array.from(permessi);
+   
   for (var i = 0, len = arr.length; i < len; ++i) {
       if (str.indexOf(arr[i]) != -1) {
           return true;
@@ -228,7 +356,7 @@ function haSpeciali(str) {
 // ------------------------------------------------------------------
 function haCaratteriPermessi(str) {
 
-  let permessi = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ%&!()?+[].,_";
+  let permessi = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#&*-+=()_:;.,!?%[]^";
   let arr = Array.from(permessi);
 
   let str_arr = Array.from(str);
