@@ -7,7 +7,7 @@
   <meta name="color-scheme" content="light dark" />
   <link rel="icon" type="image/svg+xml" href="./img/favicon.svg">
   <link rel="icon" type="image/png" href="./img/favicon.png">
-  
+
   <link rel="stylesheet" href="pico.min.css" />
   <link rel="stylesheet" href="style.css" />
   <title>Password generator</title>
@@ -19,12 +19,14 @@
 
     <section id="dati">
       <p>
-        By entering the master password, which you can keep the same for each service, and the website / email / account, a different password will be created for you without having to remember them all by heart.
+        By entering the master password, which you can keep the same for each service, and the website / email /
+        account, a different password will be created for you without having to remember them all by heart.
       </p>
       <form>
         <label for="input_master"><strong>Master password</strong> <small>[>=8 chars]</small></label>
-        <input id="input_master" type="text" name="firstname" placeholder="Master password" aria-label="Master password"
-          value="M@ster_Passw0rd" required />
+        <input id="input_master" type="password" name="firstname" placeholder="Master password"
+          aria-label="Master password" value="M@ster_Passw0rd" onmouseover="this.type = 'text';"
+          onmouseout="this.type = 'password';" required />
         <label for="input_dove"><strong>URL / Email / Account / ...</strong> <small>[>=5 chars]</small></label>
         <input id="input_dove" type="text" name="dove" placeholder="Sito web / Email / Account / ..."
           aria-label="google.com or info@live.com or smartphone ..." value="google.com" required />
@@ -36,6 +38,7 @@
       <article id="article">
         <p><em>Password</em></p>
         <h3 id="text_risultato">-</h2>
+        <button class="copia" onclick="copia()" id="btnCopia">Copy</button>
           <footer>
             <small>Check:
               <ul>
@@ -46,8 +49,14 @@
                 <li>One or more numbers: <span id="check_numeri"></span></li>
                 <li>At least one special character: <span id="check_caratteri_speciali"></span></li>
                 <li>Only characters allowed: <span id="check_caratteri_permessi"></span></li>
-                <li>No more than two consecutive identical characters: <span id="check_caratteri_consecutivi"></span></li>
+                <li>No more than two consecutive identical characters: <span id="check_caratteri_consecutivi"></span>
+                </li>
               </ul>
+              <p>
+                Link password strength
+                <a href="https://password.kaspersky.com/" target="_blank">password.kaspersky.com</a>
+                <a href="https://www.uic.edu/apps/strong-password/" target="_blank">uic.edu/apps/strong-password</a>
+              </p>
             </small>
           </footer>
       </article>

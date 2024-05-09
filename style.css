@@ -22,3 +22,7 @@ h3 {
 .OK {
   color: rgb(57, 135, 18);
 }
+
+button.copia {
+  background-color: transparent;
+}

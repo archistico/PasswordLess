@@ -7,6 +7,18 @@ window.onload = () => {
 }
 
 // ------------------------------------------------------------------
+// Copia
+// ------------------------------------------------------------------
+
+function copia() {
+  let risultato = document.getElementById("text_risultato");
+  navigator.clipboard.writeText(risultato.innerText);
+
+  let btnCopia = document.getElementById("btnCopia");
+  btnCopia.innerText = "Copied!";
+}
+
+// ------------------------------------------------------------------
 // CALCOLA
 // ------------------------------------------------------------------
 
@@ -15,6 +27,10 @@ function calcola() {
   let input_master = document.getElementById("input_master");
   let input_dove = document.getElementById("input_dove");
   let risultato = document.getElementById("text_risultato");
+  let btnCopia = document.getElementById("btnCopia");
+  
+  btnCopia.innerText = "Copy";
+  input_master.type = 'password';
 
   const dove = pulisciDove(input_dove.value);
   input_dove.value = dove;
