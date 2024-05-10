@@ -13,6 +13,12 @@ window.onload = () => {
     let input_master = document.getElementById("input_master");
     input_master.value = master;
   }
+
+  if (urlParams.has('account')) {
+    const account = urlParams.get('account');
+    let input_dove = document.getElementById("input_dove");
+    input_dove.value = account;
+  }
 }
 
 // ------------------------------------------------------------------
