@@ -20,6 +20,7 @@ TODO
  - [X] inizio a prendere i numeri e le lettere speciali dal numero[shift]
  - [X] tasto copia
  - [X] aggiungere parole
+ - [X] 
 
 ## Combinazioni di parole
 
@@ -34,4 +35,21 @@ k = 4 (gruppi di k parole)
 Quindi C(9999,4) = (9999!)/(4!*(9999-4)!) = 416.250.145.812.501 possibilità di combinazione
 
 In Excel =COMBINAZIONE(9999;4)
+```
+
+## Send master value in url
+
+https://www.w3schools.com/tags/ref_urlencode.ASP
+
+```
+const queryString = window.location.search;
+// index.html?master=pippo
+
+const urlParams = new URLSearchParams(queryString);
+
+if (urlParams.has('master')) {
+    const master = urlParams.get('master');
+    const input_master = document.getElementById('master');
+    input_master.value = master;
+}
 ```
