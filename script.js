@@ -3,7 +3,16 @@
 // ------------------------------------------------------------------
 
 window.onload = () => {
-  //calcola();
+  const queryString = window.location.search;
+  // ?master=pippo
+
+  const urlParams = new URLSearchParams(queryString);
+
+  if (urlParams.has('master')) {
+    const master = urlParams.get('master');
+    let input_master = document.getElementById("input_master");
+    input_master.value = master;
+  }
 }
 
 // ------------------------------------------------------------------
